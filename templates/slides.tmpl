@@ -1,0 +1,77 @@
+{{define "root"}}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>{{.Title}}</title>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <!-- <script src='/static/js/slides.js' type="text/javascript"></script> -->
+    <link rel="stylesheet" type="text/css" href="/static/css/reveal.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/theme/datadog.css">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/styles.css"> -->
+    <script type="text/javascript" src='/static/js/reveal.js'></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>{{.Title}}</h1>
+          {{with .Subtitle}}<h3>{{.}}</h3>{{end}}
+          {{if not .Time.IsZero}}<h4>{{.Time.Format "2 January 2006"}}</h4>{{end}}
+          {{range .Authors}}
+          <div class="presenter">
+            {{range .TextElem}}{{elem $.Template .}}{{end}}
+          </div>
+          {{end}}
+        </section>
+        {{range $i, $s := .Sections}}
+          <!-- start of slide {{$s.Number}} -->
+          <section>
+            {{if $s.Elem}}
+              <h3>{{$s.Title}}</h3>
+              {{range $s.Elem}}{{elem $.Template .}}{{end}}
+            {{else}}
+              <h2>{{$s.Title}}</h2>
+            {{end}}
+          </section>
+          <!-- end of slide {{$i}} -->
+        {{end}}{{/* of Slide block */}}
+        <section>
+          <h3>Thank you</h3>
+          {{range .Authors}}
+            <div class="presenter">
+              {{range .Elem}}{{elem $.Template .}}{{end}}
+            </div>
+          {{end}}
+        </section>
+      </div>
+    </div>
+    <a href="/"><div id="myLogo" style="background: url(static/ddlogo.png);
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+    height: 60px;"></div></a>
+    {{if .PlayEnabled}}
+      <script src='/play.js'></script>
+    {{end}}
+    <script type="text/javascript">
+    Reveal.initialize({
+    margin: 0.1,
+    width: 1280,
+    height: 720,
+    controls: false,
+    slideNumber: true,
+    center: false,
+    previewLinks: true,
+    transition: 'none',
+    transientSpeed: 'fast',
+    viewDistance: 3,
+    history: true
+    });
+    </script>
+  </body>
+</html>
+{{end}}
+{{define "newline"}}
+{{end}}

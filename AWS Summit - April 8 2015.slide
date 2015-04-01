@@ -1,0 +1,144 @@
+Using Metrics to Measure and Understand Your AWS Environment Performance
+Amazon Web Services Summit 2015
+9 Apr 2015
+Tags: go golang aws
+
+Matt Williams
+Evangelist, Datadog
+matt.williams@datadoghq.com
+http://datadoghq.com
+@technovangelist
+
+* Examples of Improvement
+
+* Examples of Improvement
+
+* Examples of Improvement
+
+
+
+* Before I Get Started...
+- getting started is easy
+
+* Before I Get Started...
+- this is not easy
+- and this will not be quick
+
+* Why measure?
+- See where you came from
+
+* Why measure?
+- See where you came from
+- See how you are doing
+
+* Why measure?
+- See where you came from
+- See how you are doing
+- See how you can improve
+
+* Why is this complicated?
+- Elasticity makes this complicated
+- Elasticity is the new normal
+
+* Scenarios that require elasticity
+- Amateur Sports
+- Shopping Events
+- Concerts
+- What is your scenario?
+
+* How to solve the complexity
+- Tags are one solution and what Datadog uses
+
+* How to manage without tags
+
+
+* How tags makes this easier
+.iframe https://app.datadoghq.com/infrastructure/map 575 1200
+
+
+* What about aggregation?
+
+
+* What about context?
+.image assets/what-about-context.png
+
+* What metrics to look at?
+- There isn’t a single source of expertise
+- This is the hard part
+
+
+* There is a lot of guidance
+
+.html assets/there-is-guidance.html
+
+* You need to find / hire /train an expert
+- Your context changes the meaning of metrics
+
+
+* 3 categories of metrics
+- Utilization - percent/time
+- Saturation - wait queue length
+- Errors - error count
+
+
+* What is good vs bad?
+First learn the patterns
+
+.image assets/patterns.png
+
+
+* Spiky
+.image assets/spiky.png
+
+* Steady
+.image assets/steady.png
+
+* Counter
+.image assets/counter.png
+
+* Bursty
+.image assets/bursty.png
+
+* Binary
+.image assets/binary.png
+
+
+* Classic Sawtooth
+.image assets/sawtooth.png
+
+* Cyclic
+.image assets/cyclic.png
+
+* Stairy
+.image assets/stairy.png
+
+* Are the anomalies the focus…
+
+* Are the anomalies the focus, or should they be ignored
+
+* Figure out your cycles
+.image assets/figure-out-cycles-desk.png
+
+* A Month of Cloudtrail
+.image assets/month-of-cloudtrail.png
+
+* Get the scales right
+.image assets/time-scale-latencies.png 600 800
+
+* Combine time scales to find patterns
+
+.image assets/docker-3-scales.png
+
+* Different Intervals
+.image assets/day-week-month.png 0 650
+
+* Combine scales to find patterns
+.image assets/time-overlays.png
+
+* Specific metrics to consider with AWS
+
+* How to get started
+
+* Questions
+
+

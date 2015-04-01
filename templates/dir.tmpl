@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Talks - Datadog Evangelism</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/bootstrap.min.css">
+    <link type="text/css" rel="stylesheet" href="/static/dir.css">
+    <link type="text/css" rel="stylesheet" href="/static/styles.css">
+    <script type="text/javascript" src="/static/js/dir.js"></script>
+  </head>
+  <body>
+    <nav class="navbar navbar-default">
+      <div class="container">
+        <div class="navbar-head`er">
+          <a href="/" class="navbar-brand">Datadog Evangelism</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li><a href="http://datadoghq.com/" target="_blank" >DatadogHQ</a></li>
+            <li><a href="http://datadoghq.com/blog" target="_blank">Blog</a></li>
+            <li><a href="http://docs.datadoghq.com" target="_blank">Documentation</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12 ">
+
+          {{with .Path}}
+          <h2>
+          {{.}}
+          </h2>
+          {{end}}
+        </div>
+      </div>
+      <div class="row">
+        {{with .Articles}}
+        <h4>Articles:</h4>
+        <dl>
+          {{range .}}
+          <dd><a href="/{{.Path}}">{{.Name}}</a>{{.Title}}</dd>
+          {{end}}
+        </dl>
+        {{end}}
+      </div>
+      {{with .Slides}}
+      <h4>Slide decks:</h4>
+      <dl>
+        {{range .}}
+        <dt><a href="/{{.Path}}">{{.Name}}</a></dt>
+        <dd>{{.Title}}</dd>
+        {{end}}
+      </dl>
+      {{end}}
+      {{with .Other}}
+      <h4>Files:</h4>
+      <dl>
+        {{range .}}
+        <dd><a href="/{{.Path}}">{{.Name}}</a></dd>
+        {{end}}
+      </dl>
+      {{end}}
+      {{with .Dirs}}
+      <h4>Sub-directories:</h4>
+      <dl>
+        {{range .}}
+        <dd><a href="/{{.Path}}">{{.Name}}</a></dd>
+        {{end}}
+      </dl>
+      {{end}}
+    </div>
+  </body>
+</html>
