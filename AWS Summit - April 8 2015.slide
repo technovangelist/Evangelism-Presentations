@@ -136,6 +136,45 @@ First learn the patterns
 .image assets/time-overlays.png
 
 * Specific metrics to consider with AWS
+It's impossible to say what the best metrics are in all cases.
+
+It depends on YOUR workload
+
+* AWS EC2
+- system.cpu.stolen
+- system.cpu.idle
+
+* AWS EC2
+.iframe https://app.datadoghq.com/dash/45096/stolen-demo-board?live=true&from_ts=1427368874242&to_ts=1427973674242&tile_size=xl&tpl_var_instance_size=r3.large#title_dash_45096 575 1200
+
+(https://www.datadoghq.com/2013/08/understanding-aws-stolen-cpu-and-how-it-affects-your-apps/)
+
+* AWS EBS Provisioned IOPS
+- aws.ebs.volume_queue_length (should never go over 1/100)
+.image assets/ebs_volume_queue_length.png
+.image assets/ebs_vql_cpu.png
+
+(https://www.datadoghq.com/2013/07/aws-ebs-provisioned-iops-getting-optimal-performance/)
+
+* AWS Elastic Load Balancer
+- healthy_host_count, latency
+- HTTPCode_ELB_5XX
+- surge_queue_length
+- spill_over_count
+- backent_connection_errors
+
+(https://www.datadoghq.com/2013/11/key-aws-elb-monitoring-metrics/)
+
+* Specific SQS Metrics
+
+- number_of_messages_sent (NOM_sent), NOM_received
+- NOM_deleted (throughput)
+- sent_message_size (cost)
+- approximate_NOM_visible (backlog)
+- approximate_NOM_not_visible (worked on)
+
+(https://www.datadoghq.com/2014/08/monitor-amazon-sqs-message-traffic-datadog/)
+
 
 * How to get started
 
