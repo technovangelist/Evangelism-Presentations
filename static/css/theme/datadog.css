@@ -279,4 +279,19 @@ body {
 
 .reveal iframe {
   border: 1px solid #222
+  text-align:center;
+}
+
+.reveal .slides {
+  text-align: left
+}
+
+.reveal figcaption {
+  position: fixed;
+  bottom: 0px;
+  font-size: 14px;
+}
+
+.reveal .slides > section, .reveal .slides > section > section {
+  height: 100%;
 }
