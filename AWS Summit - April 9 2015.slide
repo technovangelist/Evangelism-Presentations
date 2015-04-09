@@ -9,6 +9,15 @@ matt.williams@datadoghq.com
 http://datadoghq.com
 @technovangelist
 
+* Agenda
+- Intro
+- Who
+- Why
+- How
+- What
+- Details
+
+* Intro
 
 * Before I Get Started...
 - getting started is easy
@@ -21,6 +30,28 @@ http://datadoghq.com
 - getting started is easy
 - getting good is not easy
 - and it will not be quick
+
+* Monitoring has 3 parts
+- visualization
+- alerting
+- analysis
+
+* Visualization
+Tells you how things *look* but not *why*
+
+* Alerting
+Tells you that *something* happened but not *why*
+
+* Analysis
+Tells you *why* but only if you know *how* to ask for *what*
+
+* Who
+- AdRoll - real-time ad bidding - ~2 million transactions / second
+- TeamInternet/DNTX - Domain Parking / Parked Domain Traffic Exchange
+- SimpleReach - content measurement - ~7 billion measurements/day
+- Datadog
+
+* Why
 
 * Why measure?
 - See where you came from
@@ -44,6 +75,8 @@ http://datadoghq.com
 - Concerts
 - Marketing Campaigns
 - What is your scenario?
+
+* How
 
 * How to solve the complexity
 - Tags are one solution and what Datadog uses
@@ -78,6 +111,8 @@ Monitor all Docker containers running _image_ *web*
 
 * What about context?
 .iframe https://app.datadoghq.com/dash/1079/postgres?page=0&from_ts=1426963202917&to_ts=1427136002917&tile_size=xs&abstraction_level=1&per_page=30&use_date_happened=true#title_dash_1079 575 1200
+
+* What
 
 * What metrics to look at?
 - There isn’t a single source of expertise
@@ -154,6 +189,8 @@ First learn the patterns
 * Combine scales to find patterns
 .image assets/time-overlays.png
 
+* Details
+
 * Specific metrics to consider with AWS
 It's impossible to say what the best metrics are in all cases.
 
@@ -173,6 +210,10 @@ It depends on YOUR workload
 
 .caption (https://www.datadoghq.com/2013/08/understanding-aws-stolen-cpu-and-how-it-affects-your-apps/)
 
+* AWS EC2
+.iframe https://app.datadoghq.com/dash/45763/ec2-aws-summit?from_ts=1423398740000&to_ts=1425990740000&tile_size=l#title_dash_45763
+
+
 * AWS EBS Provisioned IOPS
 - aws.ebs.volume_queue_length (should never go over 1/100)
 .image assets/ebs_volume_queue_length.png 0 800
@@ -181,23 +222,15 @@ It depends on YOUR workload
 .caption (https://www.datadoghq.com/2013/07/aws-ebs-provisioned-iops-getting-optimal-performance/)
 
 * AWS Elastic Load Balancer
-- healthy_host_count, latency
-- HTTPCode_ELB_5XX
-- surge_queue_length
-- spill_over_count
-- backent_connection_errors
+- healthy_host_count, latency (enough hosts to keep latency low)
+- HTTPCode_ELB_5XX (with enough hosts this is 0)
+- surge_queue_length (inbound requests)
+- backend_connection_errors
 
 .caption (https://www.datadoghq.com/2013/11/key-aws-elb-monitoring-metrics/)
 
-* Specific SQS Metrics
-
-- number_of_messages_sent (NOM_sent), NOM_received
-- NOM_deleted (throughput)
-- sent_message_size (cost)
-- approximate_NOM_visible (backlog)
-- approximate_NOM_not_visible (worked on)
-
-.caption (https://www.datadoghq.com/2014/08/monitor-amazon-sqs-message-traffic-datadog/)
+* AWS ELB
+.iframe https://app.datadoghq.com/dash/45766/elb-demo?live=true&from_ts=1428579765946&to_ts=1428583365946&tile_size=l
 
 
 * How to get started
